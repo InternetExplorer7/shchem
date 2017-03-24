@@ -1,18 +1,30 @@
+const path = require('path');
+
 module.exports = {
+  name: 'client',
+  context: __dirname + '/client',
   entry: [
-    './shchem/src/index.js'
+    './app.jsx'
   ],
   output: {
-    path: __dirname,
-    filename: "bundle.js"
+    path: __dirname + '/server/public',
+    filename: 'bundle.js'
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx?$/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['es2015', 'react']
-      }
+      use: [{
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015', 'stage-0']
+        }
+      }]
+    }, {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
     }]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   }
- };
+};

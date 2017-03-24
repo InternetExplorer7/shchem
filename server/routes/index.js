@@ -1,11 +1,10 @@
 var express = require('express');
+var path = require('path');
+
 var router = express.Router();
-var ctrlData = require('../controllers/data');
 
 router.get('/', function(req, res, next) {
-  res.sendFile('index.html');
+  res.sendFile(path.resolve(__dirname, '..', 'index.html'));
 });
-
-router.get('/molecules', ctrlData.molecules);
 
 module.exports = router;
