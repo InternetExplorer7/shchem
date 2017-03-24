@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactTooltip from 'react-tooltip';
 import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
 
@@ -42,22 +43,26 @@ const Molecules = () => (
         backgroundColor="#a4c639"
         hoverColor="#8AA624"
         style={toolStyle}
+        data-tip='cyclohexane'
       />
       <FlatButton
         icon={<Pentane />}
         backgroundColor="#b4c639"
         hoverColor="#9AA624"
         style={toolStyle}
+        data-tip='cyclopentane'
       />
       <FlatButton
         icon={<Butane />}
         backgroundColor="#c4c639"
         hoverColor="#0AA624"
         style={toolStyle}
+        data-tip='cyclobutane'
       />
     </Paper>
     <Paper style={viewerStyle} />
     <Paper style={infoStyle} />
+    <ReactTooltip place="top" type="dark" effect="solid" />
   </div>
 )
 
